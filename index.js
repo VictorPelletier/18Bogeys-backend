@@ -4,6 +4,8 @@ const cors = require('cors');
 
 const app = express();
 const coursesRoutes = require('./routes/courses');
+const weatherRoutes = require('./routes/weather');
+const elevationRoutes = require('./routes/elevation');
 // Active CORS
 app.use(cors());
 
@@ -14,6 +16,8 @@ app.use(express.json());
 // - Définir le PORT depuis process.env
 // - Faire écouter le serveur sur ce PORT
 app.use('/courses', coursesRoutes);
+app.use('/weather', weatherRoutes);
+app.use('/elevation', elevationRoutes);
 const PORT = process.env.PORT || 3000;
 
 app.get('/health', (req, res) => {
